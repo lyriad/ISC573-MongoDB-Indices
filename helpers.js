@@ -1,8 +1,14 @@
-const generarFecha = function (annio) {
-    if (annio == undefined || annio == null) { annio = 2016; }
+const generarFecha = function () {
+
+    annio = (Math.random() * 10) <= 5
+        ? 2016
+        : 2017;
 
     dia = Math.floor((Math.random() * 30) + 1);
     mes = Math.floor((Math.random() * 12) + 1);
+
+    if (annio === 2016 && mes < 8) mes = 8;
+    else if (annio === 2017 && mes > 6) mes = 6;
 
     return new Date(annio, mes, dia, 0, 0);
 }
